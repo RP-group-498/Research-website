@@ -15,9 +15,9 @@ const documents = [
 ];
 
 const presentations = [
-  { title: 'Proposal Presentation', date: 'SUBMITTED 2026/03/01', type: 'GROUP', available: true, link: 'https://docs.google.com/presentation/d/11k02HX0s_aE4ChwyAPKHREzqrr3PCCs9/edit?usp=sharing&ouid=112324912200400228761&rtpof=true&sd=true' },
-  { title: 'Progress Presentation I', date: 'SUBMITTED 2026/03/01', type: 'GROUP', available: true, link: 'https://docs.google.com/presentation/d/1hk6elOkd-awTxQpkTqNEr9C9Nm7E4qhb/edit?usp=sharing&ouid=112324912200400228761&rtpof=true&sd=true' },
-  { title: 'Progress Presentation II', date: 'SUBMITTED 2026/03/01', type: 'GROUP', available: true, link: 'https://docs.google.com/presentation/d/1EUhNwjS_CePJYTzW3hJhwYmdmd4G_NZG/edit?usp=sharing&ouid=112324912200400228761&rtpof=true&sd=true' },
+  { title: 'Proposal Presentation', date: 'SUBMITTED 2026/03/01', type: 'GROUP', available: true, link: 'https://drive.google.com/drive/folders/1bZ5lfKVmiR5_GF02rhDEKSz2oVwRgLXL?usp=sharing' },
+  { title: 'Progress Presentation I', date: 'SUBMITTED 2026/03/01', type: 'GROUP', available: true, link: 'https://drive.google.com/drive/folders/1cQTl7rLGSj-w7ySMxcFYBX5qybP8Z_Gt?usp=sharing' },
+  { title: 'Progress Presentation II', date: 'SUBMITTED 2026/03/01', type: 'GROUP', available: true, link: 'https://drive.google.com/drive/folders/1wZMTZRMQC-GtP8_LlNpCTJ3uMXEgOnyR?usp=sharing' },
   { title: 'Final Presentation', date: 'LINK COMING SOON', type: 'GROUP', available: false, link: '#' }
 ];
 
