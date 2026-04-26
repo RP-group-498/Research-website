@@ -110,7 +110,7 @@ export default function Downloads() {
   return (
     <section id="downloads" className="py-24 px-4 md:px-8 lg:px-16 bg-gray-50">
       <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-[#1E293B] text-center mb-4">
-        Downloads
+        Resources
       </h2>
       <p className="text-center text-[#E91E8C] text-lg font-semibold tracking-tight mb-20 px-4">
         Access Our Research Documents & Presentations

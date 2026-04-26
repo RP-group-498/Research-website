@@ -37,7 +37,7 @@ export default function BrainCharacter() {
   }, []);
 
   return (
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none">
+    <div className="relative z-0 pointer-events-none flex justify-center items-center">
       <div 
         ref={brainRef}
         className="w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] relative animate-brain-bounce"

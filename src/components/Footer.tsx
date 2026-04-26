@@ -13,7 +13,7 @@ export default function Footer() {
             <span className="font-bebas text-xl uppercase">FOCUS</span>
           </Link>
           <p className="text-white/80 text-sm leading-relaxed font-medium">
-            A cognitive science-backed productivity application designed to help you overcome procrastination 
+            A cognitive science-backed productivity application designed to help you overcome procrastination
             and achieve peak mental performance.
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function Footer() {
 
       <div className="max-w-6xl mx-auto mt-16 pt-10 border-t-4 border-white text-center">
         <p className="text-white/90 text-sm font-bold">
-          &copy; 2024 Focus Research Project. Sri Lanka Institute of Information Technology. All rights reserved.
+          &copy; 2026 Focus Research Project. Sri Lanka Institute of Information Technology. All rights reserved.
         </p>
       </div>
     </footer>

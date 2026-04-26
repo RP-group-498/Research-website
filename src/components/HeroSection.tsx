@@ -19,36 +19,38 @@ export default function HeroSection() {
         }} />
       </div>
 
-      {/* Brain Character */}
-      <BrainCharacter />
-
-      {/* Hero Content */}
-      <div className="text-center relative z-10 max-w-5xl mx-auto px-4">
-        <h1 
-          className="font-bebas text-[5rem] md:text-[7rem] lg:text-[9rem] leading-[0.9] text-[#1E293B] tracking-tight mb-8"
-        >
-          FOCUS
-        </h1>
-        <p className="text-xl md:text-2xl text-[#E91E8C] font-semibold tracking-tight mt-4 mb-6">
-          Overcome Procrastination with Cognitive Science
-        </p>
-        <p className="text-base md:text-lg text-[#64748B] mt-4 max-w-2xl mx-auto leading-relaxed px-6">
-          A research-backed productivity app designed to rewire your brain for peak performance and sustained concentration
-        </p>
+      {/* Content Container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
         
-        <div className="flex gap-4 justify-center mt-10 flex-wrap px-4">
-          <a 
-            href="#what-is-focus"
-            className="px-8 py-3.5 bg-[#E91E8C] text-white font-semibold border-3 border-black brutal-shadow transition-all hover:brutal-shadow-hover hover:translate-x-[-2px] hover:translate-y-[-2px]"
+        {/* Brain Character (Left) */}
+        <div className="flex-1 w-full flex justify-center lg:justify-end">
+          <BrainCharacter />
+        </div>
+
+        {/* Hero Content (Right) */}
+        <div className="flex-1 text-center lg:text-left flex flex-col items-center lg:items-start group">
+          <h1 
+            className="font-bebas text-[5rem] md:text-[7rem] lg:text-[8.5rem] leading-[0.9] text-[#1E293B] tracking-tight mb-6"
           >
-            Learn More
-          </a>
-          <a 
-            href="#downloads"
-            className="px-8 py-3.5 bg-[#FFD700] text-black border-3 border-black font-bold brutal-shadow transition-all hover:brutal-shadow-hover hover:translate-x-[-2px] hover:translate-y-[-2px]"
-          >
-            Download
-          </a>
+            FOCUS
+          </h1>
+          <p className="text-xl md:text-2xl text-[#E91E8C] font-bold tracking-tight mt-2 mb-4 drop-shadow-sm">
+            Overcome Procrastination with Cognitive Science
+          </p>
+          <div className="relative inline-block">
+            <p className="text-lg md:text-xl text-[#334155] font-medium mt-2 max-w-xl leading-relaxed lg:px-0 px-6 bg-white/80 backdrop-blur-sm py-3 lg:pr-8 rounded-lg transition-all duration-300 group-hover:bg-white/90">
+              A research-backed productivity app designed to rewire your brain for peak performance and sustained concentration
+            </p>
+          </div>
+          
+          <div className="flex gap-4 justify-center lg:justify-start mt-8 flex-wrap">
+            <a 
+              href="#what-is-focus"
+              className="px-8 py-3.5 bg-[#E91E8C] text-white font-semibold border-3 border-black brutal-shadow transition-all hover:brutal-shadow-hover hover:translate-x-[-2px] hover:translate-y-[-2px]"
+            >
+              Learn More
+            </a>
+          </div>
         </div>
       </div>
 

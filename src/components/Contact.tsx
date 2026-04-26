@@ -31,40 +31,32 @@ export default function Contact() {
             Let&apos;s Connect
           </h3>
           <p className="text-[#6B4E9B] leading-relaxed mb-10">
-            Have questions about our research or interested in collaboration? We&apos;d love to hear from you. 
+            Have questions about our research or interested in collaboration? We&apos;d love to hear from you.
             Reach out to our team for inquiries, feedback, or partnership opportunities.
           </p>
 
           <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <div 
+              <div
                 className="w-12 h-12 flex items-center justify-center text-xl bg-[#FFD700] border-3 border-black brutal-shadow-sm"
               >
                 📧
               </div>
-              <span className="text-[#1E293B] font-medium">focus.research@sliit.lk</span>
+              <span className="text-[#1E293B] font-medium">rpgroup498@gmail.com</span>
             </div>
             <div className="flex items-center gap-4">
-              <div 
+              <div
                 className="w-12 h-12 flex items-center justify-center text-xl bg-[#E91E8C] border-3 border-black brutal-shadow-sm"
               >
                 📍
               </div>
               <span className="text-[#1E293B] font-medium">SLIIT, Malabe, Sri Lanka</span>
             </div>
-            <div className="flex items-center gap-4">
-              <div 
-                className="w-12 h-12 flex items-center justify-center text-xl bg-[#C490B8] border-3 border-black brutal-shadow-sm"
-              >
-                📱
-              </div>
-              <span className="text-[#1E293B] font-medium">+94 11 754 4801</span>
-            </div>
           </div>
         </div>
 
         {/* Contact Form */}
-        <form 
+        <form
           onSubmit={handleSubmit}
           className="bg-white p-10 border-4 border-black brutal-shadow-lg"
         >
