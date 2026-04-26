@@ -6,67 +6,68 @@ const researchData = [
   {
     icon: '📚',
     title: 'Literature Survey',
-    description: 'Our extensive review of cognitive psychology and neuroscience research reveals the underlying mechanisms of procrastination and attention disorders.',
+    description: 'Our research builds on five key pillars spanning behavioral psychology, NLP, and adaptive AI — laying the scientific foundation for FOCUS.',
     points: [
-      'Neuroplasticity & habit formation',
-      'Dopamine-driven motivation systems',
-      'Cognitive load theory applications',
-      'Behavioral intervention strategies'
+      'TimeAware: Usage tracking across productivity levels (lacks ML classification)',
+      'Zero-shot NLI: Generalizes to unseen activity classes without retraining',
+      'Temporal Motivation Theory (TMT): Predictors — task aversiveness, delay, impulsiveness',
+      'JITAI Framework: "Just-in-Time Adaptive Interventions" conceptual base',
+      'LinUCB Algorithm: Contextual bandit for personalized recommendations'
     ]
   },
   {
     icon: '🔍',
     title: 'Research Gap',
-    description: 'Existing productivity apps lack scientific grounding and personalized cognitive interventions.',
+    description: 'Existing productivity tools leave critical blind spots that FOCUS is specifically engineered to close.',
     points: [
-      'Generic one-size-fits-all approaches',
-      'Missing real-time behavioral analysis',
-      'Lack of adaptive learning systems',
-      'No cognitive pattern recognition'
+      'Behavioral Insight Gap: Static reminders ignore individual behavioral patterns',
+      'Monitoring Gaps: No browser-level enrichment or automated academic classification',
+      'No Adaptive Learning: JITAI systems lack contextual bandits for procrastination',
+      'High-Friction Feedback: Questionnaires vs. low-friction behavioral signals'
     ]
   },
   {
     icon: '💡',
-    title: 'Research Problem & Solutions',
-    description: 'How can we leverage machine learning and cognitive science to create personalized anti-procrastination interventions?',
+    title: 'Research Problem',
+    description: 'Academic procrastination is a complex self-regulation failure linked to lower performance and chronic stress.',
     points: [
-      'AI-driven behavior prediction',
-      'Personalized intervention timing',
-      'Gamified cognitive exercises',
-      'Real-time attention monitoring'
+      'Procrastination is a multi-dimensional self-regulation failure',
+      'Current apps are reactive — not iteratively adaptive to user behavior',
+      'No system jointly models detection, prediction, and intervention selection',
+      'Theory-grounded context representations are absent from existing tools'
     ]
   },
   {
     icon: '🎯',
     title: 'Research Objectives',
-    description: 'Our primary goals focus on measurable improvements in user productivity and cognitive performance.',
+    description: 'Four measurable goals that drive the design and evaluation of every module in FOCUS.',
     points: [
-      'Reduce procrastination by 40%',
-      'Improve sustained attention spans',
-      'Build lasting productive habits',
-      'Enhance cognitive flexibility'
+      'Three-layer classification pipeline: rule-based → zero-shot NLI → LLM',
+      'Hybrid AI detection engine: Isolation Forest + HMM + XGBoost + LSTM',
+      'Adaptive task duration prediction via SBERT similarity & k-NN regression',
+      'Improve intervention acceptance using discounted LinUCB + TMT context vector'
     ]
   },
   {
     icon: '⚙️',
     title: 'Methodology',
-    description: 'A multi-phase research approach combining qualitative and quantitative methods.',
+    description: 'A four-module system architecture where each layer feeds intelligence into the next.',
     points: [
-      'User behavior data collection',
-      'A/B testing of interventions',
-      'Longitudinal cognitive assessments',
-      'Machine learning model training'
+      'Module 1 — Behavior Monitoring: Electron tracker + Chrome extension + 3-layer pipeline',
+      'Module 2 — Pattern Recognition: 4 ML models → continuous procrastination risk score',
+      'Module 3 — Task Scheduling: LLM decomposition + semantic duration prediction',
+      'Module 4 — Smart Interventions: Contextual bandit selects Pomodoro, Reframe, or None'
     ]
   },
   {
     icon: '🛠️',
-    title: 'Technologies',
-    description: 'Cutting-edge tech stack designed for scalability and real-time processing.',
+    title: 'Technologies Used',
+    description: 'A carefully curated stack — from edge data collection to cloud-scale AI inference.',
     points: [
-      'React Native / Flutter for mobile',
-      'TensorFlow for ML models',
-      'Python/FastAPI backend',
-      'Firebase real-time database'
+      'Frameworks: Electron (desktop tracker), Chrome Extension (browser data)',
+      'Databases: SQLite (local cache) + MongoDB Atlas (cloud sync)',
+      'NLP/ML: bart-large-mnli, Sentence-BERT, XGBoost, LSTM, Isolation Forest, HMM',
+      'AI APIs: Google Gemini 2.5 Flash (LLM fallback & task decomposition)'
     ]
   }
 ];

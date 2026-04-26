@@ -3,29 +3,21 @@
 import { useEffect, useRef } from 'react';
 
 const milestones = [
-  { date: 'February 2024', title: 'Project Proposal' },
-  { date: 'April 2024', title: 'Release 1.0' },
-  { date: 'May 2024', title: 'Progress Presentation I' },
-  { date: 'July 2024', title: 'Release 2.0' },
-  { date: 'August 2024', title: 'Progress Presentation 2' },
-  { date: 'September 2024', title: 'Research Paper' },
-  { date: 'October 2024', title: 'Website Assessment' },
-  { date: 'November 2024', title: 'Logbook' },
-  { date: 'December 2024', title: 'Final Report' },
-  { date: 'January 2025', title: 'Final Presentation & Viva' }
+  { date: 'September 2025', title: 'Project Proposal', status: 'Completed', marks: '12%' },
+  { date: 'January 2026', title: 'Progress Presentation I', status: 'Completed', marks: '15%' },
+  { date: 'March 2026', title: 'Progress Presentation II', status: 'Completed', marks: '18%' },
+  { date: 'April 2026', title: 'Research Paper Submission', status: 'In Progress', marks: '10%' },
+  { date: 'April 2026', title: 'Final Assessment & Viva', status: 'Upcoming', marks: '20%' },
+  { date: 'May 2026', title: 'Final Report Submission', status: 'Upcoming', marks: '19%' }
 ];
 
 const progressMarkers = [
-  { label: 'Proposal', short: 'Feb' },
-  { label: 'R1.0', short: 'Apr' },
-  { label: 'PP1', short: 'May' },
-  { label: 'R2.0', short: 'Jul' },
-  { label: 'PP2', short: 'Aug' },
-  { label: 'Paper', short: 'Sep' },
-  { label: 'Web', short: 'Oct' },
-  { label: 'Log', short: 'Nov' },
-  { label: 'Report', short: 'Dec' },
-  { label: 'Viva', short: 'Jan' }
+  { label: 'Proposal', short: 'Sep \'25' },
+  { label: 'PP I', short: 'Jan \'26' },
+  { label: 'PP II', short: 'Mar \'26' },
+  { label: 'Paper', short: 'Apr \'26' },
+  { label: 'Viva', short: 'Apr \'26' },
+  { label: 'Report', short: 'May \'26' }
 ];
 
 export default function Milestones() {
@@ -81,10 +73,22 @@ export default function Milestones() {
             {/* Content */}
             <div className={`w-full md:w-[45%] pl-16 md:pl-0 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8 md:text-right'}`}>
               <div className="bg-white border-4 border-black p-8 brutal-shadow transition-all hover:brutal-shadow-hover hover:-translate-x-1 hover:-translate-y-1">
-                <span className="font-bebas text-sm text-[#E91E8C] tracking-[2px] uppercase">
-                  {milestone.date}
-                </span>
-                <h3 className="font-bebas text-xl text-[#1E293B] mt-2 uppercase">
+                <div className="flex items-center gap-3 mb-2 flex-wrap">
+                  <span className="font-bebas text-sm text-[#E91E8C] tracking-[2px] uppercase">
+                    {milestone.date}
+                  </span>
+                  <span className={`px-2 py-0.5 text-xs font-bold rounded-full ${
+                    milestone.status === 'Completed' ? 'bg-teal-100 text-teal-700' :
+                    milestone.status === 'In Progress' ? 'bg-slate-200 text-slate-700' :
+                    'bg-slate-100 text-slate-500'
+                  }`}>
+                    {milestone.status}
+                  </span>
+                  <span className="px-2 py-0.5 text-xs font-bold bg-[#FCE7F3] text-[#E91E8C] rounded">
+                    {milestone.marks}
+                  </span>
+                </div>
+                <h3 className="font-bebas text-xl text-[#1E293B] uppercase">
                   {milestone.title}
                 </h3>
               </div>

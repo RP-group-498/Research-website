@@ -1,31 +1,36 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const teamMembers = [
   {
-    emoji: '👨‍🔬',
-    name: 'Team Member 1',
-    role: 'Project Lead & ML Engineer',
-    bio: 'Specializing in machine learning algorithms for behavioral prediction and cognitive modeling.'
+    image: '/team/amaratunge.jpg',
+    name: 'Amaratunge A.',
+    role: 'Automated Behavior Monitoring & Data Classification',
+    bio: 'This component focuses on dual-source tracking (browser and desktop) and the three-layer activity classification pipeline.',
+    email: 'amaratunge.a@outlook.com'
   },
   {
-    emoji: '👩‍💻',
-    name: 'Team Member 2',
-    role: 'Full Stack Developer',
-    bio: 'Expert in building scalable applications with React Native and cloud infrastructure.'
+    image: '/team/vilochana.jpeg',
+    name: 'Vilochana A.G.B',
+    role: 'Procrastination Pattern Recognition Engine',
+    bio: 'This module uses hybrid AI models (XGBoost, HMM, Isolation Forest, and LSTM) to detect behavioral patterns and generate risk scores.',
+    email: 'agbvilochana@gmail.com'
   },
   {
-    emoji: '👨‍🎨',
-    name: 'Team Member 3',
-    role: 'UX/UI Designer',
-    bio: 'Creating intuitive and engaging user experiences backed by cognitive psychology principles.'
+    image: '/team/jayasundara.jpeg',
+    name: 'Jayasundara S.M.A.V',
+    role: 'Dynamic Task Prioritization & Scheduling Module',
+    bio: 'This section involves LLM-based task decomposition and adaptive duration prediction using Sentence-BERT similarity.',
+    email: 'it22352576@my.sliit.lk'
   },
   {
-    emoji: '👩‍🔬',
-    name: 'Team Member 4',
-    role: 'Research Analyst',
-    bio: 'Conducting user studies and analyzing behavioral data to validate our hypotheses.'
+    image: '/team/jayasinghe.jpeg',
+    name: 'Jayasinghe N.P.',
+    role: 'Smart Intervention & Adaptive Learning Engine',
+    bio: 'This component manages the contextual bandit system that selects and refines personalized psychological interventions.',
+    email: 'nipunprjay@gmail.com'
   }
 ];
 
@@ -53,17 +58,53 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <section 
-      id="about" 
+    <section
+      id="about"
       className="py-24 px-4 md:px-8 lg:px-16 bg-gray-50"
     >
       <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-[#1E293B] text-center mb-4">
         About Us
       </h2>
-      <p className="text-center text-[#E91E8C] text-lg font-semibold tracking-tight mb-20 px-4">
+      <p className="text-center text-[#E91E8C] text-lg font-semibold tracking-tight mb-16 px-4">
         Meet Our Team
       </p>
 
+      {/* Supervisors */}
+      <div className="flex flex-col md:flex-row justify-center items-center gap-10 mb-20 px-4">
+        {/* Supervisor */}
+        <div className="bg-white border-4 border-black brutal-shadow px-8 py-8 text-center flex-1 max-w-sm w-full">
+          <div className="w-28 h-28 mx-auto mb-6 relative z-10 border-4 border-black bg-[#FFD700] overflow-hidden">
+            <Image src="/team/supervisor.jpg" alt="Supervisor" fill className="object-cover" />
+          </div>
+          <h3 className="font-bebas text-2xl text-[#1E293B] mb-3 uppercase">
+            Supervisor
+          </h3>
+          <p className="text-[#1E293B] mb-2 font-bold">Dr. Kalpani Manathunga</p>
+          <p className="text-[#E91E8C] text-sm font-bold uppercase mb-4">Faculty of Computing, SLIIT</p>
+          <a href="mailto:kalpani.m@sliit.lk" className="inline-flex items-center gap-2 text-[#1E293B] font-bold hover:text-[#E91E8C] transition-colors">
+            <span>✉️</span>
+            <span className="text-sm underline decoration-2 underline-offset-4">Email</span>
+          </a>
+        </div>
+
+        {/* Co-Supervisor */}
+        <div className="bg-white border-4 border-black brutal-shadow px-8 py-8 text-center flex-1 max-w-sm w-full">
+          <div className="w-28 h-28 mx-auto mb-6 relative z-10 border-4 border-black bg-[#FFD700] overflow-hidden">
+            <Image src="/team/co-supervisor.jpeg" alt="Co-Supervisor" fill className="object-cover" />
+          </div>
+          <h3 className="font-bebas text-2xl text-[#1E293B] mb-3 uppercase">
+            Co-Supervisor
+          </h3>
+          <p className="text-[#1E293B] mb-2 font-bold">Ms. Aruni Premarathne</p>
+          <p className="text-[#E91E8C] text-sm font-bold uppercase mb-4">Faculty of Computing, SLIIT</p>
+          <a href="mailto:aruni.p@sliit.lk" className="inline-flex items-center gap-2 text-[#1E293B] font-bold hover:text-[#E91E8C] transition-colors">
+            <span>✉️</span>
+            <span className="text-sm underline decoration-2 underline-offset-4">Email</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Team Members */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-6xl mx-auto">
         {teamMembers.map((member, index) => (
           <div
@@ -76,36 +117,30 @@ export default function AboutUs() {
             <div className="absolute top-0 left-0 right-0 h-3 bg-[#E91E8C]" />
 
             {/* Avatar */}
-            <div 
-              className="w-28 h-28 mx-auto mb-6 flex items-center justify-center text-5xl relative z-10 border-4 border-black bg-[#FFD700]"
+            <div
+              className="w-28 h-28 mx-auto mb-6 flex items-center justify-center relative z-10 border-4 border-black bg-[#FFD700] overflow-hidden"
             >
-              {member.emoji}
+              <Image src={member.image} alt={member.name} fill className="object-cover" />
             </div>
 
             <h3 className="font-bebas text-xl text-[#1E293B] mb-2 uppercase">
               {member.name}
             </h3>
-            
+
             <p className="text-[#E91E8C] text-sm font-bold mb-5 uppercase">
               {member.role}
             </p>
 
-            <p className="text-[#64748B] text-sm leading-relaxed font-medium">
+            <p className="text-[#64748B] text-sm leading-relaxed font-medium mb-4">
               {member.bio}
             </p>
+
+            <a href={`mailto:${member.email}`} className="inline-flex items-center gap-2 text-[#1E293B] font-bold hover:text-[#E91E8C] transition-colors">
+              <span>✉️</span>
+              <span className="text-sm underline decoration-2 underline-offset-4">Email</span>
+            </a>
           </div>
         ))}
-      </div>
-
-      {/* Supervisor */}
-      <div className="text-center mt-20 px-4">
-        <div className="inline-block bg-[#FFD700] border-4 border-black brutal-shadow px-12 py-8">
-          <h3 className="font-bebas text-2xl text-[#1E293B] mb-3 uppercase">
-            Supervisor
-          </h3>
-          <p className="text-[#1E293B] mb-2 font-bold">Dr. [Supervisor Name]</p>
-          <p className="text-[#E91E8C] text-sm font-bold uppercase">Department of Computer Science, SLIIT</p>
-        </div>
       </div>
     </section>
   );

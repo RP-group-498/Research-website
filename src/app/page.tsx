@@ -21,8 +21,8 @@ export default function Home() {
         <Milestones />
         <Downloads />
         <AboutUs />
-        <Achievements />
-        <DownloadCTA />
+        {/* <Achievements /> */}
+        {/* <DownloadCTA /> */}
         <Contact />
       </main>
       <Footer />

@@ -2,35 +2,23 @@
 
 import { useEffect, useRef } from 'react';
 
-const downloads = [
-  {
-    icon: '📋',
-    title: 'Project Proposal',
-    description: 'Complete project proposal with research objectives and methodology',
-    buttonText: 'Download PDF',
-    link: '#'
-  },
-  {
-    icon: '📊',
-    title: 'Progress Reports',
-    description: 'Milestone reports and presentation slides',
-    buttonText: 'Download ZIP',
-    link: '#'
-  },
-  {
-    icon: '📄',
-    title: 'Research Paper',
-    description: 'Published research findings and analysis',
-    buttonText: 'Download PDF',
-    link: '#'
-  },
-  {
-    icon: '📱',
-    title: 'App Demo',
-    description: 'Interactive prototype demonstration',
-    buttonText: 'View Demo',
-    link: '#'
-  }
+const documents = [
+  { title: 'Topic Assessment', date: 'SUBMITTED 2024/02/25', type: 'GROUP', available: true, link: 'https://drive.google.com/file/d/1Ta4IN3q2WC2XGmXXVqdTLwrZU6iG4gzA/view?usp=sharing' },
+  { title: 'Project Charter', date: 'SUBMITTED 2024/02/25', type: 'GROUP', available: false, link: '#' },
+  { title: 'Project Proposal', date: 'SUBMITTED 2025/09/19', type: 'INDIVIDUAL', available: true, link: 'https://drive.google.com/drive/folders/19zwyuay4gDheqXUd6rE1NejwWJDSO0u3?usp=sharing' },
+  { title: 'Status Documents I', date: 'SUBMITTED 2026/01/11', type: 'GROUP', available: true, link: 'https://drive.google.com/file/d/1TbmGSMY9oTM0cj34fJYvF1AfDjgyWbXR/view?usp=sharing' },
+  { title: 'Status Documents II', date: 'SUBMITTED 2026/04/19', type: 'INDIVIDUAL', available: true, link: '#' },
+  { title: 'Status Documents III', date: 'SUBMITTED 2026/04/20', type: 'INDIVIDUAL', available: true, link: '#' },
+  { title: 'Research Paper', date: 'SUBMITTED', type: 'GROUP', available: true, link: 'https://drive.google.com/file/d/1XxT3Lxg2D4xgd-yyNSylsH2sDccCeacF/view?usp=sharing' },
+  { title: 'Final Report', date: 'LINK COMING SOON', isMultiple: true, types: ['GROUP', 'INDIVIDUAL'], available: false, link: '#' },
+  { title: 'Poster', date: 'LINK COMING SOON', type: 'GROUP', available: false, link: '#' }
+];
+
+const presentations = [
+  { title: 'Proposal Presentation', date: 'SUBMITTED 2026/03/01', type: 'GROUP', available: true, link: 'https://docs.google.com/presentation/d/11k02HX0s_aE4ChwyAPKHREzqrr3PCCs9/edit?usp=sharing&ouid=112324912200400228761&rtpof=true&sd=true' },
+  { title: 'Progress Presentation I', date: 'SUBMITTED 2026/03/01', type: 'GROUP', available: true, link: 'https://docs.google.com/presentation/d/1hk6elOkd-awTxQpkTqNEr9C9Nm7E4qhb/edit?usp=sharing&ouid=112324912200400228761&rtpof=true&sd=true' },
+  { title: 'Progress Presentation II', date: 'SUBMITTED 2026/03/01', type: 'GROUP', available: true, link: 'https://docs.google.com/presentation/d/1EUhNwjS_CePJYTzW3hJhwYmdmd4G_NZG/edit?usp=sharing&ouid=112324912200400228761&rtpof=true&sd=true' },
+  { title: 'Final Presentation', date: 'LINK COMING SOON', type: 'GROUP', available: false, link: '#' }
 ];
 
 export default function Downloads() {
@@ -56,47 +44,97 @@ export default function Downloads() {
     return () => observer.disconnect();
   }, []);
 
+  const renderCard = (item: any, index: number) => (
+    <div
+      key={index}
+      ref={(el) => { cardsRef.current[index] = el; }}
+      className="bg-white border-4 border-black p-6 flex flex-col justify-between transition-all duration-700 ease-out opacity-0 translate-y-8 brutal-shadow hover:brutal-shadow-hover hover:-translate-x-1 hover:-translate-y-1"
+      style={{ transitionDelay: `${(index % 8) * 100}ms` }}
+    >
+      <div>
+        {/* Date Badge */}
+        <div className={`inline-block px-3 py-1 text-xs font-bold rounded-full mb-6 uppercase ${item.date === 'LINK COMING SOON' ? 'bg-gray-100 text-gray-500' : 'bg-[#E0F2FE] text-[#0284C7]'
+          }`}>
+          {item.date}
+        </div>
+
+        {/* Title */}
+        <h4 className="font-bold text-xl text-[#1E293B] mb-8">
+          {item.title}
+        </h4>
+      </div>
+
+      {/* Footer Area */}
+      <div className="flex justify-between items-center mt-auto w-full">
+        {item.isMultiple ? (
+          <div className="flex flex-col gap-3 w-full">
+            {item.types.map((type: string, i: number) => (
+              <div key={i} className="flex justify-between items-center w-full">
+                <span className="px-2 py-1 bg-[#F1F5F9] text-[#64748B] text-xs font-bold rounded uppercase">
+                  {type}
+                </span>
+                <span className="px-4 py-2 border-2 border-gray-200 text-gray-400 font-bold text-xs uppercase">
+                  Soon
+                </span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex justify-between items-center w-full">
+            {/* Type Badge */}
+            <span className="px-2 py-1 bg-[#F1F5F9] text-[#64748B] text-xs font-bold rounded uppercase">
+              {item.type}
+            </span>
+
+            {/* Button */}
+            {item.available ? (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-white border-2 border-black text-black font-bold text-xs uppercase hover:bg-[#FFD700] transition-colors brutal-shadow-sm flex items-center gap-1"
+              >
+                Download <span className="text-sm">↗</span>
+              </a>
+            ) : (
+              <span className="px-4 py-2 border-2 border-gray-200 text-gray-400 font-bold text-xs uppercase">
+                Soon
+              </span>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
   return (
-    <section id="downloads" className="py-24 px-4 md:px-8 lg:px-16 bg-white">
+    <section id="downloads" className="py-24 px-4 md:px-8 lg:px-16 bg-gray-50">
       <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-[#1E293B] text-center mb-4">
         Downloads
       </h2>
       <p className="text-center text-[#E91E8C] text-lg font-semibold tracking-tight mb-20 px-4">
-        Access Our Research Documents
+        Access Our Research Documents & Presentations
       </p>
 
-      <div className="flex flex-wrap justify-center gap-10 max-w-6xl mx-auto">
-        {downloads.map((item, index) => (
-          <div
-            key={index}
-            ref={(el) => { cardsRef.current[index] = el; }}
-            className="w-64 border-4 border-black p-8 text-center transition-all duration-700 ease-out opacity-0 translate-y-8 brutal-shadow hover:brutal-shadow-hover hover:-translate-x-1 hover:-translate-y-1 bg-white"
-            style={{
-              transitionDelay: `${index * 100}ms`
-            }}
-          >
-            <div 
-              className="w-20 h-20 flex items-center justify-center text-4xl mx-auto mb-6 bg-[#FFD700] border-3 border-black"
-            >
-              {item.icon}
-            </div>
+      <div className="max-w-7xl mx-auto">
+        {/* Documents Section */}
+        <h3 className="font-bebas text-2xl text-[#1E293B] mb-8 flex items-center gap-3 uppercase tracking-wider">
+          <span>📄</span> Documents
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {documents.map((item, index) => renderCard(item, index))}
+        </div>
 
-            <h3 className="font-bold text-xl text-[#1E293B] mb-3 uppercase">
-              {item.title}
-            </h3>
-            
-            <p className="text-[#64748B] text-sm mb-8 leading-relaxed font-medium">
-              {item.description}
-            </p>
+        {/* Separator */}
+        <div className="w-full h-1 bg-gray-200 mb-16 rounded-full" />
 
-            <a 
-              href={item.link}
-              className="inline-block px-6 py-3 bg-[#E91E8C] text-white font-bold border-3 border-black brutal-shadow-sm hover:brutal-shadow transition-all uppercase text-sm"
-            >
-              {item.buttonText}
-            </a>
-          </div>
-        ))}
+        {/* Presentations Section */}
+        <h3 className="font-bebas text-2xl text-[#1E293B] mb-8 flex items-center gap-3 uppercase tracking-wider">
+          <span>🖥️</span> Presentations
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {presentations.map((item, index) => renderCard(item, index + documents.length))}
+        </div>
       </div>
     </section>
   );
