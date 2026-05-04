@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 export default function Testimonials() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
