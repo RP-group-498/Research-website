@@ -8,25 +8,29 @@ const teamMembers = [
     image: '/team/amaratunge.jpg',
     name: 'Amaratunge A.',
     role: 'Behavioral Monitoring',
-    bio: 'Dual-source tracking & three-layer activity classification pipeline.'
+    bio: 'Dual-source tracking & three-layer activity classification pipeline.',
+    email: 'it22351586@my.sliit.lk'
   },
   {
     image: '/team/vilochana.jpeg',
     name: 'Vilochana A.G.B',
     role: 'Pattern Recognition',
-    bio: 'Hybrid AI models for behavioral pattern detection & risk scoring.'
+    bio: 'Hybrid AI models for behavioral pattern detection & risk scoring.',
+    email: 'it22114808@my.sliit.lk'
   },
   {
     image: '/team/jayasundara.jpeg',
     name: 'Jayasundara S.M.A.V',
     role: 'Task Prioritization',
-    bio: 'LLM-based task decomposition & adaptive duration prediction.'
+    bio: 'LLM-based task decomposition & adaptive duration prediction.',
+    email: 'it22352576@my.sliit.lk'
   },
   {
     image: '/team/jayasinghe.jpeg',
     name: 'Jayasinghe N.P.',
     role: 'Smart Interventions',
-    bio: 'Contextual bandit system for personalized interventions.'
+    bio: 'Contextual bandit system for personalized interventions.',
+    email: 'it22202468@my.sliit.lk'
   }
 ];
 
@@ -80,7 +84,8 @@ export default function AboutUs() {
               Dr. Kalpani Manathunga
             </h3>
             <p className="text-primary-purple text-[10px] font-black uppercase tracking-[0.2em] mb-6">Supervisor</p>
-            <p className="text-gray-500 text-sm font-medium mb-8 leading-relaxed">Faculty of Computing, SLIIT</p>
+            <p className="text-gray-500 text-sm font-medium mb-4 leading-relaxed">Faculty of Computing, SLIIT</p>
+            <a href="mailto:kalpani.m@sliit.lk" className="text-primary-purple text-xs font-medium hover:underline break-all">kalpani.m@sliit.lk</a>
           </div>
 
           {/* Co-Supervisor */}
@@ -92,7 +97,8 @@ export default function AboutUs() {
               Ms. Aruni Premarathne
             </h3>
             <p className="text-primary-purple text-[10px] font-black uppercase tracking-[0.2em] mb-6">Co-Supervisor</p>
-            <p className="text-gray-500 text-sm font-medium mb-8 leading-relaxed">Faculty of Computing, SLIIT</p>
+            <p className="text-gray-500 text-sm font-medium mb-4 leading-relaxed">Faculty of Computing, SLIIT</p>
+            <a href="mailto:aruni.p@sliit.lk" className="text-primary-purple text-xs font-medium hover:underline break-all">aruni.p@sliit.lk</a>
           </div>
         </div>
 
@@ -117,9 +123,13 @@ export default function AboutUs() {
                 {member.role}
               </p>
 
-              <p className="text-gray-500 text-xs leading-relaxed font-medium mb-8">
+              <p className="text-gray-500 text-xs leading-relaxed font-medium mb-4">
                 {member.bio}
               </p>
+
+              <a href={`mailto:${member.email}`} className="text-primary-purple text-xs font-medium hover:underline break-all">
+                {member.email}
+              </a>
 
             </div>
           ))}
