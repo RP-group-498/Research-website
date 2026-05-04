@@ -7,30 +7,26 @@ const teamMembers = [
   {
     image: '/team/amaratunge.jpg',
     name: 'Amaratunge A.',
-    role: 'Automated Behavior Monitoring & Data Classification',
-    bio: 'This component focuses on dual-source tracking (browser and desktop) and the three-layer activity classification pipeline.',
-    email: 'amaratunge.a@outlook.com'
+    role: 'Behavioral Monitoring',
+    bio: 'Dual-source tracking & three-layer activity classification pipeline.'
   },
   {
     image: '/team/vilochana.jpeg',
     name: 'Vilochana A.G.B',
-    role: 'Procrastination Pattern Recognition Engine',
-    bio: 'This module uses hybrid AI models (XGBoost, HMM, Isolation Forest, and LSTM) to detect behavioral patterns and generate risk scores.',
-    email: 'agbvilochana@gmail.com'
+    role: 'Pattern Recognition',
+    bio: 'Hybrid AI models for behavioral pattern detection & risk scoring.'
   },
   {
     image: '/team/jayasundara.jpeg',
     name: 'Jayasundara S.M.A.V',
-    role: 'Dynamic Task Prioritization & Scheduling Module',
-    bio: 'This section involves LLM-based task decomposition and adaptive duration prediction using Sentence-BERT similarity.',
-    email: 'it22352576@my.sliit.lk'
+    role: 'Task Prioritization',
+    bio: 'LLM-based task decomposition & adaptive duration prediction.'
   },
   {
     image: '/team/jayasinghe.jpeg',
     name: 'Jayasinghe N.P.',
-    role: 'Smart Intervention & Adaptive Learning Engine',
-    bio: 'This component manages the contextual bandit system that selects and refines personalized psychological interventions.',
-    email: 'nipunprjay@gmail.com'
+    role: 'Smart Interventions',
+    bio: 'Contextual bandit system for personalized interventions.'
   }
 ];
 
@@ -60,87 +56,74 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="py-24 px-4 md:px-8 lg:px-16 bg-gray-50"
+      className="py-24 px-4 md:px-8 lg:px-16 bg-white relative overflow-hidden"
     >
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-[#1E293B] text-center mb-4">
-        About Us
-      </h2>
-      <p className="text-center text-[#E91E8C] text-lg font-semibold tracking-tight mb-16 px-4">
-        Meet Our Team
-      </p>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-purple-50/50 -z-10 rounded-full blur-[120px]" />
 
-      {/* Supervisors */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-10 mb-20 px-4">
-        {/* Supervisor */}
-        <div className="bg-white border-4 border-black brutal-shadow px-8 py-8 text-center flex-1 max-w-sm w-full">
-          <div className="w-28 h-28 mx-auto mb-6 relative z-10 border-4 border-black bg-[#FFD700] overflow-hidden">
-            <Image src="/team/supervisor.jpg" alt="Supervisor" fill className="object-cover" />
-          </div>
-          <h3 className="font-bebas text-2xl text-[#1E293B] mb-3 uppercase">
-            Supervisor
-          </h3>
-          <p className="text-[#1E293B] mb-2 font-bold">Dr. Kalpani Manathunga</p>
-          <p className="text-[#E91E8C] text-sm font-bold uppercase mb-4">Faculty of Computing, SLIIT</p>
-          <a href="mailto:kalpani.m@sliit.lk" className="inline-flex items-center gap-2 text-[#1E293B] font-bold hover:text-[#E91E8C] transition-colors">
-            <span>✉️</span>
-            <span className="text-sm underline decoration-2 underline-offset-4">Email</span>
-          </a>
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20 animate-slide-up">
+          <p className="text-primary-purple text-xs font-black uppercase tracking-[0.3em] mb-4">The Group</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
+            Our <span className="text-primary-purple">Team</span>
+          </h2>
+          <div className="w-24 h-1.5 bg-primary-purple mx-auto rounded-full opacity-20" />
         </div>
 
-        {/* Co-Supervisor */}
-        <div className="bg-white border-4 border-black brutal-shadow px-8 py-8 text-center flex-1 max-w-sm w-full">
-          <div className="w-28 h-28 mx-auto mb-6 relative z-10 border-4 border-black bg-[#FFD700] overflow-hidden">
-            <Image src="/team/co-supervisor.jpeg" alt="Co-Supervisor" fill className="object-cover" />
-          </div>
-          <h3 className="font-bebas text-2xl text-[#1E293B] mb-3 uppercase">
-            Co-Supervisor
-          </h3>
-          <p className="text-[#1E293B] mb-2 font-bold">Ms. Aruni Premarathne</p>
-          <p className="text-[#E91E8C] text-sm font-bold uppercase mb-4">Faculty of Computing, SLIIT</p>
-          <a href="mailto:aruni.p@sliit.lk" className="inline-flex items-center gap-2 text-[#1E293B] font-bold hover:text-[#E91E8C] transition-colors">
-            <span>✉️</span>
-            <span className="text-sm underline decoration-2 underline-offset-4">Email</span>
-          </a>
-        </div>
-      </div>
-
-      {/* Team Members */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-6xl mx-auto">
-        {teamMembers.map((member, index) => (
-          <div
-            key={index}
-            ref={(el) => { cardsRef.current[index] = el; }}
-            className="bg-white border-4 border-black p-8 text-center transition-all duration-700 ease-out opacity-0 translate-y-8 brutal-shadow hover:brutal-shadow-hover hover:-translate-x-1 hover:-translate-y-1 relative overflow-hidden"
-            style={{ transitionDelay: `${index * 100}ms` }}
-          >
-            {/* Top bar */}
-            <div className="absolute top-0 left-0 right-0 h-3 bg-[#E91E8C]" />
-
-            {/* Avatar */}
-            <div
-              className="w-28 h-28 mx-auto mb-6 flex items-center justify-center relative z-10 border-4 border-black bg-[#FFD700] overflow-hidden"
-            >
-              <Image src={member.image} alt={member.name} fill className="object-cover" />
+        {/* Supervisors */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-10 mb-24 px-4">
+          {/* Supervisor */}
+          <div className="bg-purple-50/40 rounded-3xl p-12 text-center flex-1 max-w-sm w-full border border-purple-100 shadow-xl shadow-purple-900/5 hover:bg-white hover:shadow-2xl transition-all duration-500">
+            <div className="w-32 h-32 mx-auto mb-8 relative rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <Image src="/team/supervisor.jpg" alt="Supervisor" fill className="object-cover" />
             </div>
-
-            <h3 className="font-bebas text-xl text-[#1E293B] mb-2 uppercase">
-              {member.name}
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              Dr. Kalpani Manathunga
             </h3>
-
-            <p className="text-[#E91E8C] text-sm font-bold mb-5 uppercase">
-              {member.role}
-            </p>
-
-            <p className="text-[#64748B] text-sm leading-relaxed font-medium mb-4">
-              {member.bio}
-            </p>
-
-            <a href={`mailto:${member.email}`} className="inline-flex items-center gap-2 text-[#1E293B] font-bold hover:text-[#E91E8C] transition-colors">
-              <span>✉️</span>
-              <span className="text-sm underline decoration-2 underline-offset-4">Email</span>
-            </a>
+            <p className="text-primary-purple text-[10px] font-black uppercase tracking-[0.2em] mb-6">Supervisor</p>
+            <p className="text-gray-500 text-sm font-medium mb-8 leading-relaxed">Faculty of Computing, SLIIT</p>
           </div>
-        ))}
+
+          {/* Co-Supervisor */}
+          <div className="bg-purple-50/40 rounded-3xl p-12 text-center flex-1 max-w-sm w-full border border-purple-100 shadow-xl shadow-purple-900/5 hover:bg-white hover:shadow-2xl transition-all duration-500">
+            <div className="w-32 h-32 mx-auto mb-8 relative rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <Image src="/team/co-supervisor.jpeg" alt="Co-Supervisor" fill className="object-cover" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              Ms. Aruni Premarathne
+            </h3>
+            <p className="text-primary-purple text-[10px] font-black uppercase tracking-[0.2em] mb-6">Co-Supervisor</p>
+            <p className="text-gray-500 text-sm font-medium mb-8 leading-relaxed">Faculty of Computing, SLIIT</p>
+          </div>
+        </div>
+
+        {/* Team Members */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {teamMembers.map((member, index) => (
+            <div
+              key={index}
+              ref={(el) => { cardsRef.current[index] = el; }}
+              className="group bg-purple-50/30 rounded-2xl p-8 text-center transition-all duration-700 ease-out opacity-0 translate-y-8 border border-purple-50 shadow-sm hover:bg-white hover:shadow-2xl hover:shadow-purple-900/5 hover:-translate-y-2"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <div className="w-24 h-24 mx-auto mb-6 relative rounded-full overflow-hidden border-2 border-white shadow-md">
+                <Image src={member.image} alt={member.name} fill className="object-cover" />
+              </div>
+
+              <h3 className="text-lg font-bold text-gray-900 mb-1">
+                {member.name}
+              </h3>
+
+              <p className="text-primary-purple text-[10px] font-black mb-6 uppercase tracking-widest">
+                {member.role}
+              </p>
+
+              <p className="text-gray-500 text-xs leading-relaxed font-medium mb-8">
+                {member.bio}
+              </p>
+
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

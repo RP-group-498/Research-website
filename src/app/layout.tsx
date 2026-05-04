@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Focus - Cognitive Science Productivity App",
   description: "A research-backed productivity app designed to rewire your brain for peak performance and overcome procrastination",
+  icons: {
+    icon: "/icon.ico",
+  },
 };
 
 export default function RootLayout({

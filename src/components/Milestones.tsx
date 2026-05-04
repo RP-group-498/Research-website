@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const milestones = [
   { date: 'September 2025', title: 'Project Proposal', status: 'Completed', marks: '12%' },
@@ -16,12 +16,15 @@ const progressMarkers = [
   { label: 'PP I', short: 'Jan \'26' },
   { label: 'PP II', short: 'Mar \'26' },
   { label: 'Paper', short: 'Apr \'26' },
-  { label: 'Viva', short: 'Apr \'26' },
-  { label: 'Report', short: 'May \'26' }
+  { label: 'Viva', short: 'May \'04' },
+  { label: 'Report', short: 'May \'13' }
 ];
 
 export default function Milestones() {
+  const [isExpanded, setIsExpanded] = useState(false);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  const visibleMilestones = isExpanded ? milestones : milestones.slice(0, 3);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,85 +44,109 @@ export default function Milestones() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [visibleMilestones]);
 
   return (
-    <section 
-      id="milestones" 
-      className="py-24 px-4 md:px-8 lg:px-16 text-white bg-gradient-to-br from-[#1E293B] to-[#334155]"
+    <section
+      id="milestones"
+      className="py-16 px-4 md:px-8 lg:px-16 bg-[#F5F3FF]"
     >
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-white text-center mb-4">
-        Milestones
-      </h2>
-      <p className="text-center text-[#FF6BB3] text-lg font-semibold tracking-tight mb-20 px-4">
-        Our Research Journey
-      </p>
-
-      {/* Timeline */}
-      <div className="max-w-5xl mx-auto relative">
-        {/* Center Line */}
-        <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#FF6BB3] to-[#E91E8C] rounded-full hidden md:block" />
-        <div className="absolute left-5 w-1 h-full bg-gradient-to-b from-[#FF6BB3] to-[#E91E8C] rounded-full md:hidden" />
-
-        {milestones.map((milestone, index) => (
-          <div
-            key={index}
-            ref={(el) => { itemsRef.current[index] = el; }}
-            className={`flex items-center mb-12 relative opacity-0 translate-y-8 transition-all duration-700 ${
-              index % 2 === 0 ? 'md:flex-row-reverse' : ''
-            }`}
-            style={{ transitionDelay: `${index * 100}ms` }}
-          >
-            {/* Content */}
-            <div className={`w-full md:w-[45%] pl-16 md:pl-0 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8 md:text-right'}`}>
-              <div className="bg-white border-4 border-black p-8 brutal-shadow transition-all hover:brutal-shadow-hover hover:-translate-x-1 hover:-translate-y-1">
-                <div className="flex items-center gap-3 mb-2 flex-wrap">
-                  <span className="font-bebas text-sm text-[#E91E8C] tracking-[2px] uppercase">
-                    {milestone.date}
-                  </span>
-                  <span className={`px-2 py-0.5 text-xs font-bold rounded-full ${
-                    milestone.status === 'Completed' ? 'bg-teal-100 text-teal-700' :
-                    milestone.status === 'In Progress' ? 'bg-slate-200 text-slate-700' :
-                    'bg-slate-100 text-slate-500'
-                  }`}>
-                    {milestone.status}
-                  </span>
-                  <span className="px-2 py-0.5 text-xs font-bold bg-[#FCE7F3] text-[#E91E8C] rounded">
-                    {milestone.marks}
-                  </span>
-                </div>
-                <h3 className="font-bebas text-xl text-[#1E293B] uppercase">
-                  {milestone.title}
-                </h3>
-              </div>
-            </div>
-
-            {/* Dot */}
-            <div className="absolute left-5 md:left-1/2 -translate-x-1/2 w-5 h-5 bg-[#E91E8C] rounded-full shadow-lg shadow-[#E91E8C] z-10" />
-          </div>
-        ))}
-      </div>
-
-      {/* Progress Bar */}
-      <div className="max-w-4xl mx-auto mt-20 bg-white border-4 border-black p-10 brutal-shadow-lg">
-        <div className="h-8 bg-gray-200 border-3 border-black relative overflow-hidden mb-6">
-          <div 
-            className="h-full bg-[#FFD700] border-r-3 border-black"
-            style={{
-              width: '65%'
-            }}
-          />
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12 animate-slide-up">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
+            Research <span className="text-primary-purple">Timeline</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
+            Our journey from a concept to a fully realized cognitive science application.
+          </p>
         </div>
 
-        <div className="flex justify-between flex-wrap gap-3">
-          {progressMarkers.map((marker, index) => (
-            <div key={index} className="text-center flex-1 min-w-[60px]">
-              <span className="block text-xs font-bold text-[#1E293B] uppercase">{marker.label}</span>
-              <span className="block text-xs text-[#64748B] font-medium">{marker.short}</span>
+        {/* Timeline */}
+        <div className="max-w-5xl mx-auto relative px-4">
+          {/* Center Line */}
+          <div className="absolute left-1/2 -translate-x-1/2 w-0.5 h-full bg-purple-200 rounded-full hidden md:block" />
+          <div className="absolute left-8 w-0.5 h-full bg-purple-200 rounded-full md:hidden" />
+
+          {visibleMilestones.map((milestone, index) => (
+            <div
+              key={index}
+              ref={(el) => { itemsRef.current[index] = el; }}
+              className={`flex items-center mb-8 relative opacity-0 translate-y-8 transition-all duration-700 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              {/* Content */}
+              <div className={`w-full md:w-[45%] pl-16 md:pl-0 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12 md:text-right'}`}>
+                <div className={`bg-white px-5 py-4 rounded-xl border border-white shadow-xl shadow-purple-900/5 hover:shadow-purple-900/10 transition-all duration-300 inline-block text-left ${index % 2 !== 0 ? 'md:text-right' : ''} max-w-sm w-full`}>
+                  <div className={`flex items-center gap-3 mb-2 ${index % 2 !== 0 ? 'md:justify-end' : ''} flex-wrap`}>
+                    <span className="text-[10px] font-bold text-primary-purple uppercase tracking-widest">
+                      {milestone.date}
+                    </span>
+                    <span className={`px-2 py-0.5 text-[8px] font-black rounded uppercase tracking-tighter ${milestone.status === 'Completed' ? 'bg-green-50 text-green-600' :
+                      milestone.status === 'In Progress' ? 'bg-blue-50 text-blue-600' :
+                        'bg-gray-50 text-gray-400'
+                      }`}>
+                      {milestone.status}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 leading-tight">
+                    {milestone.title}
+                  </h3>
+                </div>
+              </div>
+
+              {/* Dot */}
+              <div className={`absolute left-8 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full z-10 border-4 border-white shadow-lg ${milestone.status === 'Completed' ? 'bg-primary-purple' : 'bg-white'
+                }`} />
             </div>
           ))}
+
+          <div className="flex justify-center mt-12 relative z-10">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="px-8 py-3 bg-white border border-purple-100 rounded-full text-primary-purple font-bold text-sm shadow-xl shadow-purple-900/5 hover:bg-primary-purple hover:text-white transition-all duration-300"
+            >
+              {isExpanded ? 'Show Less' : 'See Full Timeline'}
+            </button>
+          </div>
+        </div>
+
+        {/* Overall Progress Container */}
+        <div className="max-w-4xl mx-auto mt-24 bg-white p-12 rounded-3xl shadow-2xl shadow-purple-900/5 border border-white">
+          <div className="flex justify-between items-end mb-8">
+            <div>
+              <p className="text-primary-purple text-xs font-black uppercase tracking-[0.2em] mb-2">Development Phase</p>
+              <h4 className="text-3xl font-bold text-gray-900">Project Velocity</h4>
+            </div>
+            <div className="text-right">
+              <span className="block text-4xl font-black text-primary-purple">90%</span>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Completed</span>
+            </div>
+          </div>
+
+          <div className="h-4 bg-purple-50 rounded-full relative overflow-hidden mb-12 border border-purple-100">
+            <div
+              className="h-full bg-gradient-to-r from-primary-purple to-primary-light rounded-full"
+              style={{
+                width: '65%'
+              }}
+            />
+          </div>
+
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-8">
+            {progressMarkers.map((marker, index) => (
+              <div key={index} className="text-center group">
+                <span className="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2 group-hover:text-primary-purple transition-colors">{marker.label}</span>
+                <div className="w-1.5 h-1.5 bg-purple-100 rounded-full mx-auto mb-2" />
+                <span className="block text-xs text-gray-600 font-bold">{marker.short}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+
+

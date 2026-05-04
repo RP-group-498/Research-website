@@ -3,6 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import WhatIsFocus from '@/components/WhatIsFocus';
 import Milestones from '@/components/Milestones';
 import Downloads from '@/components/Downloads';
+import Testimonials from '@/components/Testimonials';
 import AboutUs from '@/components/AboutUs';
 import Achievements from '@/components/Achievements';
 import DownloadCTA from '@/components/DownloadCTA';
@@ -20,6 +21,7 @@ export default function Home() {
         <WhatIsFocus />
         <Milestones />
         <Downloads />
+        <Testimonials />
         <AboutUs />
         {/* <Achievements /> */}
         {/* <DownloadCTA /> */}
