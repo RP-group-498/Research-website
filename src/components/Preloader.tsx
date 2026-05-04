@@ -8,7 +8,7 @@ export default function Preloader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 1200);
 
     return () => clearTimeout(timer);
   }, []);
@@ -17,18 +17,15 @@ export default function Preloader() {
 
   return (
     <div 
-      className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-500 ${
+      className={`fixed inset-0 z-[9999] flex items-center justify-center transition-all duration-700 bg-white ${
         loading ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}
-      style={{ background: '#6B4E9B' }}
     >
-      <div 
-        className="w-24 h-24 animate-preloader-pulse"
-        style={{
-          background: 'linear-gradient(135deg, #D4A5C9, #E91E8C)',
-          borderRadius: '45% 52% 48% 55% / 55% 48% 52% 45%'
-        }}
-      />
+      <div className="relative flex items-center justify-center">
+        <div className="w-16 h-16 bg-primary-purple rounded-xl animate-pulse-slow shadow-xl shadow-purple-200" />
+        <div className="absolute inset-0 w-16 h-16 border-4 border-primary-purple rounded-xl animate-ping opacity-20" />
+      </div>
     </div>
   );
 }
+

@@ -16,90 +16,53 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 md:px-8 lg:px-16 bg-white">
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-[#1E293B] text-center mb-4">
-        Contact Us
-      </h2>
-      <p className="text-center text-[#E91E8C] text-lg font-semibold tracking-tight mb-20 px-4">
-        Get in Touch
-      </p>
+    <section id="contact" className="py-24 px-4 md:px-8 lg:px-16 bg-[#F5F3FF] relative overflow-hidden">
+      <div className="absolute top-1/2 left-0 w-1/2 h-1/2 bg-white rounded-full blur-3xl -z-10 opacity-60" />
+      
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20 animate-slide-up">
+          <p className="text-primary-purple text-xs font-black uppercase tracking-[0.3em] mb-4">Get in Touch</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
+            Let&apos;s <span className="text-primary-purple">Connect</span>
+          </h2>
+          <div className="w-24 h-1.5 bg-primary-purple mx-auto rounded-full opacity-20" />
+        </div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-        {/* Contact Info */}
-        <div>
-          <h3 className="font-bold text-2xl text-[#1E293B] mb-6">
-            Let&apos;s Connect
-          </h3>
-          <p className="text-[#6B4E9B] leading-relaxed mb-10">
-            Have questions about our research or interested in collaboration? We&apos;d love to hear from you.
-            Reach out to our team for inquiries, feedback, or partnership opportunities.
-          </p>
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white p-16 rounded-3xl shadow-2xl shadow-purple-900/5 border border-white animate-slide-up">
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Collaborate With Us
+            </h3>
+            <p className="text-gray-500 text-lg leading-relaxed mb-12 font-medium text-center">
+              Reach out to our team for inquiries, feedback, or partnership opportunities. Click the email below to start a conversation.
+            </p>
 
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div
-                className="w-12 h-12 flex items-center justify-center text-xl bg-[#FFD700] border-3 border-black brutal-shadow-sm"
-              >
-                📧
+            <div className="flex flex-col md:flex-row justify-center gap-12 items-center">
+              <a href="mailto:rpgroup498@gmail.com" className="flex items-center gap-6 group">
+                <div className="w-20 h-20 rounded-2xl bg-purple-50 flex items-center justify-center text-primary-purple group-hover:bg-primary-purple group-hover:text-white transition-all duration-300 shadow-xl shadow-purple-900/5">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-primary-purple uppercase tracking-[0.2em] mb-1">Email Us</p>
+                  <span className="text-xl font-bold text-gray-900 group-hover:text-primary-purple transition-colors">rpgroup498@gmail.com</span>
+                </div>
+              </a>
+              
+              <div className="flex items-center gap-6 group">
+                <div className="w-20 h-20 rounded-2xl bg-purple-50 flex items-center justify-center text-primary-purple group-hover:bg-primary-purple group-hover:text-white transition-all duration-300 shadow-xl shadow-purple-900/5">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-primary-purple uppercase tracking-[0.2em] mb-1">Our Location</p>
+                  <span className="text-xl font-bold text-gray-900">SLIIT, Malabe, Sri Lanka</span>
+                </div>
               </div>
-              <span className="text-[#1E293B] font-medium">rpgroup498@gmail.com</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div
-                className="w-12 h-12 flex items-center justify-center text-xl bg-[#E91E8C] border-3 border-black brutal-shadow-sm"
-              >
-                📍
-              </div>
-              <span className="text-[#1E293B] font-medium">SLIIT, Malabe, Sri Lanka</span>
             </div>
           </div>
         </div>
-
-        {/* Contact Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white p-10 border-4 border-black brutal-shadow-lg"
-        >
-          <div className="mb-8">
-            <label className="block text-[#1E293B] font-bold mb-2 uppercase text-sm">Your Name</label>
-            <input
-              type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              placeholder="Enter your name"
-              required
-              className="w-full px-5 py-4 border-3 border-black font-poppins text-base transition-all focus:outline-none focus:ring-4 focus:ring-[#FFD700]"
-            />
-          </div>
-          <div className="mb-8">
-            <label className="block text-[#1E293B] font-bold mb-2 uppercase text-sm">Email Address</label>
-            <input
-              type="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              placeholder="Enter your email"
-              required
-              className="w-full px-5 py-4 border-3 border-black font-poppins text-base transition-all focus:outline-none focus:ring-4 focus:ring-[#FFD700]"
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-[#1E293B] font-bold mb-2 uppercase text-sm">Message</label>
-            <textarea
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              placeholder="Write your message..."
-              rows={4}
-              className="w-full px-5 py-4 border-3 border-black font-poppins text-base transition-all resize-none focus:outline-none focus:ring-4 focus:ring-[#FFD700]"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full py-4 font-bebas text-xl tracking-wider text-white transition-all bg-[#E91E8C] border-3 border-black brutal-shadow hover:brutal-shadow-hover hover:-translate-x-1 hover:-translate-y-1"
-          >
-            Send Message
-          </button>
-        </form>
       </div>
     </section>
   );
 }
+
+

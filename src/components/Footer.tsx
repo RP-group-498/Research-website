@@ -1,86 +1,72 @@
 import Link from 'next/link';
+import Logo from './Logo';
+
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1E293B] text-white py-20 px-4 md:px-8 lg:px-16 border-t-8 border-black">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
-        {/* Brand */}
-        <div>
-          <Link href="/" className="flex items-center gap-2 mb-6">
-            <div className="bg-[#FFD700] border-3 border-white p-2">
-              <span className="text-2xl">🧠</span>
+    <footer className="bg-[#5B21B6] text-white py-24 px-4 md:px-8 lg:px-16 overflow-hidden relative">
+      {/* Decorative circle */}
+      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="mb-8 group block">
+              <Logo variant="white" size="xl" iconOnly={true} className="group-hover:scale-105 transition-transform duration-300" />
+            </Link>
+            <p className="text-purple-100/70 text-sm leading-relaxed font-medium max-w-xs">
+              Empowering individuals to reclaim their time through cognitive science and adaptive AI interventions.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-8">Navigation</h4>
+            <div className="flex flex-col gap-4">
+              <Link href="#hero" className="text-purple-100/60 text-sm hover:text-white transition-colors">Home</Link>
+              <Link href="#what-is-focus" className="text-purple-100/60 text-sm hover:text-white transition-colors">Features</Link>
+              <Link href="#milestones" className="text-purple-100/60 text-sm hover:text-white transition-colors">Timeline</Link>
+              <Link href="#downloads" className="text-purple-100/60 text-sm hover:text-white transition-colors">Resources</Link>
+              <Link href="#testimonials" className="text-purple-100/60 text-sm hover:text-white transition-colors">Testimonials</Link>
             </div>
-            <span className="font-bebas text-xl uppercase">FOCUS</span>
-          </Link>
-          <p className="text-white/80 text-sm leading-relaxed font-medium">
-            A cognitive science-backed productivity application designed to help you overcome procrastination
-            and achieve peak mental performance.
+          </div>
+
+          {/* Research */}
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-8">Research</h4>
+            <div className="flex flex-col gap-4">
+              <Link href="#about" className="text-purple-100/60 text-sm hover:text-white transition-colors">Our Team</Link>
+              <Link href="#" className="text-purple-100/60 text-sm hover:text-white transition-colors">Publications</Link>
+              <Link href="#" className="text-purple-100/60 text-sm hover:text-white transition-colors">Case Studies</Link>
+              <Link href="#" className="text-purple-100/60 text-sm hover:text-white transition-colors">Whitepaper</Link>
+            </div>
+          </div>
+
+          {/* Support */}
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-8">Connect</h4>
+            <div className="flex flex-col gap-4">
+              <Link href="#contact" className="text-purple-100/60 text-sm hover:text-white transition-colors">Contact Us</Link>
+              <Link href="#" className="text-purple-100/60 text-sm hover:text-white transition-colors">Twitter</Link>
+              <Link href="#" className="text-purple-100/60 text-sm hover:text-white transition-colors">LinkedIn</Link>
+              <Link href="#" className="text-purple-100/60 text-sm hover:text-white transition-colors">GitHub</Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-purple-100/40 text-xs font-bold uppercase tracking-widest">
+            &copy; 2026 Focus Project. SLIIT Faculty of Computing.
           </p>
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <h4 className="font-bebas text-lg text-[#FFD700] mb-6 uppercase">Quick Links</h4>
-          <div className="flex flex-col gap-3">
-            <Link href="#what-is-focus" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              About Focus
-            </Link>
-            <Link href="#milestones" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              Milestones
-            </Link>
-            <Link href="#downloads" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              Downloads
-            </Link>
-            <Link href="#contact" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              Contact
-            </Link>
+          <div className="flex gap-8">
+            <Link href="#" className="text-purple-100/30 text-xs font-bold hover:text-white transition-colors uppercase tracking-tighter">Privacy Policy</Link>
+            <Link href="#" className="text-purple-100/30 text-xs font-bold hover:text-white transition-colors uppercase tracking-tighter">Terms of Service</Link>
           </div>
         </div>
-
-        {/* Research */}
-        <div>
-          <h4 className="font-bebas text-lg text-[#FFD700] mb-6 uppercase">Research</h4>
-          <div className="flex flex-col gap-3">
-            <Link href="#" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              Publications
-            </Link>
-            <Link href="#" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              Methodology
-            </Link>
-            <Link href="#about" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              Team
-            </Link>
-            <Link href="#" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              Supervisor
-            </Link>
-          </div>
-        </div>
-
-        {/* Connect */}
-        <div>
-          <h4 className="font-bebas text-lg text-[#FFD700] mb-6 uppercase">Connect</h4>
-          <div className="flex flex-col gap-3">
-            <Link href="#" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              GitHub
-            </Link>
-            <Link href="#" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              LinkedIn
-            </Link>
-            <Link href="#" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              Twitter
-            </Link>
-            <Link href="#" className="text-white/60 text-sm hover:text-[#FF6BB3] transition-colors">
-              YouTube
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto mt-16 pt-10 border-t-4 border-white text-center">
-        <p className="text-white/90 text-sm font-bold">
-          &copy; 2026 Focus Research Project. Sri Lanka Institute of Information Technology. All rights reserved.
-        </p>
       </div>
     </footer>
   );
 }
+
+
